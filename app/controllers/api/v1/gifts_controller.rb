@@ -1,7 +1,7 @@
 class Api::V1::GiftsController < ApplicationController
   def index
     gifts = Gift.all
-    render json: gifts, except: [:created_at, :updated_at]
+    render json: GiftSerializer.new(gifts)
   end
 
   def create
@@ -15,7 +15,7 @@ class Api::V1::GiftsController < ApplicationController
 
   private
   def gift_params
-    params.require(gift).permit(:name, :store, :person_id)
+    params.require(gift).permit(:name, :store, :person)
   end
 
 end
