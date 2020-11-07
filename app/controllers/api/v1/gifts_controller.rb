@@ -15,7 +15,7 @@ class Api::V1::GiftsController < ApplicationController
 
   private
   def gift_params
-    params.require(gift).permit(:name, :store, :person)
+    params.require(:gift).permit(:name, :store, :person_id)
   end
 
 end
