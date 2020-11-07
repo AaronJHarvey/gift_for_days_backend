@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_11_05_172340) do
     t.string "store"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "person_id"
+    t.integer "person_id", null: false
     t.index ["person_id"], name: "index_gifts_on_person_id"
   end
 
