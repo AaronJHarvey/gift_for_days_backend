@@ -7,9 +7,9 @@ class Api::V1::GiftsController < ApplicationController
   def create
     gift = Gift.new(gift_params)
     if gift.save
-      render json: gift, status: :accepted
+      render json:GiftSerializer.new(gift), status: :accepted
     else
-      render json: {errors: gift.errors.full_messages}, status: :unprocessible_entity
+      render json: {errors: gift.errors.full_messages}, status: :unprecessible_entity
     end
   end
 
