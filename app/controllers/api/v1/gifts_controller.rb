@@ -13,6 +13,12 @@ class Api::V1::GiftsController < ApplicationController
     end
   end
 
+  def destroy
+    gift = Gift.find_by_id(params[:id])
+    gift.delete
+
+  end
+
   private
   def gift_params
     params.require(:gift).permit(:name, :store, :person_id)
